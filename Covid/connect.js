@@ -37,12 +37,12 @@ router.route('/user/sign').post(function(req, res) {
     if (upool.pool) {
         
         lookUser.authUser(paramId, paramToken, function(err, rows) {
-        }
                 
-        if (rows) {
-            console.dir(rows);
+            if (rows) {
+                console.dir(rows);
             
-            var usertoken = rows[1].name;
+                var usertoken = rows[1].name;
+            }
         });
         
         // 사용자 추가
