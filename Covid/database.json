@@ -1,0 +1,7 @@
+{
+    host : 'covid-db.cvde33ecvyrc.us-east-2.rds.amazonaws.com',
+    user : 'admin',
+    password : 'coviddata',
+    database : 'CovidDB',
+    port : '3306'
+}
