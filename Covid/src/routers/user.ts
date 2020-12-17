@@ -12,6 +12,7 @@ router.get('/test', async (req, res) => {
 router.post('/sign', async (req, res) => {
     try {
         const { token, uuid, os } = req.body
+        if (!token || !uuid || !os) throw new Error('No Appropriate fields in Request')
         const found = await userDao.getUserByUUID(uuid)
         if (found) {
             await userDao.deleteUserByUUID(uuid)
@@ -23,7 +24,7 @@ router.post('/sign', async (req, res) => {
         }
         const result = await userDao.insertUser(token, uuid, os)
         if (!result) throw new Error()
-        sendRes(res, 200, '', {
+        sendRes(res, 200, '성공', {
             success: true
         })
     } catch (e) {
