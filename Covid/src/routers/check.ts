@@ -9,8 +9,9 @@ router.post('/in/:storeId', async (req, res) => {
         const storeId = req.query
         const uuid = req.body
         
-        const result = await contactDao.getAllUser(storeId)
-        sendRes(res, 200, '성공', result)
+        const result = await contactDao.insertContact(storeId, uuid)
+        if (!result) throw new Error()
+        sendRes(res, 200, '체크인되었습니다', result)
     } catch (e) {
         console.log(e)
         sendErr(res, e)
