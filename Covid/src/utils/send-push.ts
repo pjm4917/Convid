@@ -15,6 +15,10 @@ export const sendPushTo = async (people: Array<{token: string, os: 'ANDROID' | '
                             title: title,
                             body: body,
                         },
+                        data: {
+                            title: title,
+                            body: body,
+                        },
                     })
                 }
             )
