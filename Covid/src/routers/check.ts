@@ -29,5 +29,3 @@ router.get('', async (req, res) => {
         sendErr(res, e)
     }
 })
-
-export = router
