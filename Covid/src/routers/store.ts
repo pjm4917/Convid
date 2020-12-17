@@ -6,8 +6,8 @@ const router = Router()
 
 router.get('/', async (req, res) => {
     try {
-        const { name, pwd, phone, address, latitude, longitude } = req.query
-        senRes(res, 200, '성공', [{id, name, phone, address, latitude, longitude}])
+        const { id, pwd, phone, storeName, uuid, latLng, address } = req.query
+        senRes(res, 200, '성공', [{id, pwd, phone, storeName, uuid, latLng, address}])
     } catch (e) {
          console.log(e)
         sendErr(res, e)
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
 router.post('/register', async (req, res) => {
     try {
-        const { name, pwd, phone, address, latitude, longitude } = req.body
+        const { id, pwd, phone, storeName, uuid, latLng, address } = req.body
         if (!name || !phone || !address) throw new Error('No Appropriate fields in Request')
         const found = await storeDao.getStorebyPhone(phone)
         if (found) {
@@ -26,7 +26,7 @@ router.post('/register', async (req, res) => {
             })
             return
         }
-        const result = await storeDao.insertStore(name, pwd, phone, address, latitude, longitude)
+        const result = await storeDao.insertStore(id, pwd, phone, storeName, uuid, latLng, address)
         if (!result) throw new Error()
         sendRes(res, 200, '', {
             success: true

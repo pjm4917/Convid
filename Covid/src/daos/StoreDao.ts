@@ -1,9 +1,9 @@
 import { BaseDao } from './BaseDao'
 
 class StoreDao extends BaseDao {
-    insertStore(name: string, pwd: stirng, phone: string, address: string, latitude: string, longitude: string) {
-        const queryStr = 'INSERT INTO STORE_TB (name, pwd, phone, address, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?)'
-        return this.insert(queryStr, [name, pwd, phone, address, latitude, longitude])
+    insertStore(id: string, pwd: string, phone: string, storeName: string, uuid: string, latLng: application/json, address: string) {
+        const queryStr = 'INSERT INTO STORE_TB (id, pwd, phone, storeName, uuid, latLng, address) VALUES (?, ?, ?, ?, ?, ?)'
+        return this.insert(queryStr, [id, pwd, phone, storeName, uuid, latLng, address])
     }
     
     getStoreByPhone(phone: string) {

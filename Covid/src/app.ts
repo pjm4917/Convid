@@ -8,7 +8,6 @@ import { promises } from 'fs'
 require('dotenv').config()
 
 import user from './routers/user'
-import store from './routers/store'
 
 const app = express()
 
@@ -40,7 +39,6 @@ app.get('/', (req, res) => {
 
 // Add Router
 app.use('/user', user)
-app.use('/store', store)
 
 /// catch 404 and forwarding to error handler
 app.use((req, res, next) => {
