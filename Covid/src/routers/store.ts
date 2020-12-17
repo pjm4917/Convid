@@ -42,7 +42,9 @@ router.post('/login', async(req, res) => {
         const { phone, pwd } = req.body
         const found = await storeDo.checkStore(phone, pwd)
         if (!found) {
-            sendRes(res, 201, '회원가입이 되어있지 않은 가게입니다', {updated: true})
+            sendRes(res, 201, '회원가입이 되어있지 않은 가게입니다', {
+                updated: true
+            })
             return
         }
         const allowlogin = true
