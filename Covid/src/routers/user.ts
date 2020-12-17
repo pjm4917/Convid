@@ -13,7 +13,7 @@ router.get('/test', async (req, res) => {
 router.post('/sign', async (req, res) => {
     try {
         const { token, uuid, os } = req.body
-        if (!token || !uuid || !os) throw new Error('No Appropriate fields in Request')
+        if (!token && !uuid && !os) throw new Error('No Appropriate fields in Request')
         const found = await userDao.getUserByUUID(uuid)
         if (found) {
             console.log(found)
@@ -39,7 +39,7 @@ router.post('/sign', async (req, res) => {
 
 router.get('/history', async (req, res) => {
     try {
-        const {uuid} = req.query
+        const { uuid } = req.query
         // TODO : Replace Mocking
         sendRes(res, 200, '성공', [
                 {
