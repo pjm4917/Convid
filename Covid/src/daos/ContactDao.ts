@@ -7,7 +7,7 @@ class ContactDao extends BaseDao {
     }
     
     getAllUser(storeId: string) {
-        const queryStr = 'SELECT * FROM USER_STORE_TB WHERE store_id = (store_id) VALUES (?)'
+        const queryStr = 'SELECT * FROM USER_STORE_TB WHERE store_id = ? VALUES (?)'
         return this.getAll(queryStr, [storeId])
     }
 }
