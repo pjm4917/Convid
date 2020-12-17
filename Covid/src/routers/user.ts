@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { sendErr, sendRes } from '../utils/response-handler'
 import { userDao } from '../daos/UserDao'
+import moment from "moment";
 
 const router = Router()
 
@@ -36,7 +37,7 @@ router.post('/sign', async (req, res) => {
     }
 })
 
-router.post('/history', async (req, res) => {
+router.get('/history', async (req, res) => {
     try {
         const {uuid} = req.query
         // TODO : Replace Mocking
