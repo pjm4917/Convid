@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { sendErr, sendRes } from '../utils/response-handler'
 import { userDao } from '../daos/UserDao'
-import moment from "moment";
+import moment from "moment"
 
 const router = Router()
 
