@@ -15,7 +15,8 @@ router.post('/sign', async (req, res) => {
         if (!token || !uuid || !os) throw new Error('No Appropriate fields in Request')
         const found = await userDao.getUserByUUID(uuid)
         if (found) {
-            if (found.token !== token || found.os !== os) {
+            console.log(found)
+            if (found.token !== token && found.os !== os) {
                 await userDao.deleteUserByUUID(uuid)
                 await userDao.insertUser(token, uuid, os)
             }
