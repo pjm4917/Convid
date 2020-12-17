@@ -7,7 +7,7 @@ class StoreDao extends BaseDao {
         name: string,
         uuid: string,
         latitude: number,
-        longitude,
+        longitude: number,
         address: string
     ) {
         const queryStr = 'INSERT INTO STORE_TB (phone, pwd, name, uuid, latitude, longitude, address) VALUES (?, ?, ?, ?, ?, ?, ?)'
