@@ -17,7 +17,7 @@ var expressSession = require('express-session');
 var app = express();
 
 // 기본 속성 설정
-app.set('port', process.env.PORT || 3301);
+app.set('port', process.env.PORT || 3001);
 
 var upool = require('./coviddb');
 var lookUser = require('./user');

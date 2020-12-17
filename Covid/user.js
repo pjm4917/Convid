@@ -1,7 +1,7 @@
 var upool = require('./coviddb');
 
 
-    // 사용자 추가
+// 사용자 추가
 exports.addUser = function(id, token, callback) {
     console.log('addUser 호출됨.');
 
