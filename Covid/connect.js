@@ -24,7 +24,7 @@ var lookUser = require('./user');
 
 // 라우터 정보를 읽어 들여 라우팅 설정
 var router = express.Router();
-router_loader.init(app, router);
+require('dotenv').config();
 
 // 사용자 추가 라우팅 함수
 router.post('/user/sign', function(req, res) {
@@ -65,3 +65,5 @@ router.post('/user/sign', function(req, res) {
     } else {
     }
 });
+
+module.exports = app;
