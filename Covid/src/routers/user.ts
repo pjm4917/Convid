@@ -36,4 +36,37 @@ router.post('/sign', async (req, res) => {
     }
 })
 
+router.post('/history', async (req, res) => {
+    try {
+        const {uuid} = req.query
+        // TODO : Replace Mocking
+        sendRes(res, 200, '성공', [
+                {
+                    id: 1,
+                    storeId: 1,
+                    address: '서울시 동작구 상도로',
+                    latLng: {
+                        latitude: 127.342311,
+                        longitude: 37.3222102,
+                    },
+                    createdAt: moment().toJSON()
+                },
+                {
+                    id: 2,
+                    storeId: 1,
+                    address: '서울시 동작구 상도로',
+                    latLng: {
+                        latitude: 127.342311,
+                        longitude: 37.3222102,
+                    },
+                    createdAt: moment().toJSON()
+                }
+            ]
+        )
+    } catch (e) {
+        console.log(e)
+        sendErr(res, e)
+    }
+})
+
 export = router
