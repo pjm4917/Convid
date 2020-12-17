@@ -7,7 +7,7 @@ class UserDao extends BaseDao {
     }
 
     getUserByUUID(uuid: string) {
-        const queryStr = 'SELECT * FROM USER_TB WHERE uuid = ? AND deleted_at IS NULL'
+        const queryStr = 'SELECT * FROM STORE_TB WHERE uuid = ? AND deleted_at IS NULL'
         return this.getOne(queryStr, [uuid])
     }
 

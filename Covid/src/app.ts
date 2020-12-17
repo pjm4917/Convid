@@ -10,6 +10,7 @@ require('dotenv').config()
 import user from './routers/user'
 import store from './routers/store'
 import admin from './routers/admin'
+import check from './routers/check'
 
 const app = express()
 
@@ -45,6 +46,7 @@ app.get('/', (req, res) => {
 app.use('/user', user)
 app.use('/store', store)
 app.use('/admin', admin)
+app.use('/check', check)
 
 /// catch 404 and forwarding to error handler
 app.use((req, res, next) => {
