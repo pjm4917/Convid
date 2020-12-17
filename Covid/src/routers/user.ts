@@ -11,9 +11,17 @@ router.get('/test', async (req, res) => {
 
 router.post('/sign', async (req, res) => {
     try {
-        const { token, uuid, os, phone } = req.body
-        // TODO: 이미 존재하는 유저인지 중복 검사.
-        const result = await userDao.insertUser(token, uuid, os, phone)
+        const { token, uuid, os } = req.body
+        const found = await userDao.getUserByUUID(uuid)
+        if (found) {
+            await userDao.deleteUserByUUID(uuid)
+            await userDao.insertUser(token, uuid, os)
+            sendRes(res, 201, '이미 존재하는 유저입니다', {
+                updated: true
+            })
+            return
+        }
+        const result = await userDao.insertUser(token, uuid, os)
         if (!result) throw new Error()
         sendRes(res, 200, '', {
             success: true
