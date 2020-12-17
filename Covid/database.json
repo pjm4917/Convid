@@ -1,7 +1,0 @@
-{
-    host : 'coviddatabase.cnsxhx5bsw4v.ap-northeast-2.rds.amazonaws.com',
-    user : 'admin',
-    password : 'covid2020',
-    database : 'database',
-    port : '3306'
-}
