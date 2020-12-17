@@ -22,11 +22,12 @@ app.set('port', process.env.PORT || 3001);
 var upool = require('./coviddb');
 var lookUser = require('./user');
 
-// 라우터 객체 참조
+// 라우터 정보를 읽어 들여 라우팅 설정
 var router = express.Router();
+router_loader.init(app, router);
 
 // 사용자 추가 라우팅 함수
-router.route('/user/sign').post(function(req, res) {
+router.post('/user/sign', function(req, res) {
     
     var paramId = req.body.id || req.query.id;
     var paramToken = req.body.token || req.query.token;
