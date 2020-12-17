@@ -6,17 +6,11 @@ const router = Router
 
 router.post('/in/:storeId', async (req, res) => {
     try {
-        const {storeId} = req.query
-        // TODO : Replace Mocking
-        sendRes(res, 200, '성공', [
-                {
-                    uuid : 111111,
-                },
-                {
-                    uuid : 222222,
-                }
-            ]
-        )
+        const storeId = req.query
+        const uuid = req.body
+        
+        const result = await contactDao.getAllUser(storeId)
+        sendRes(res, 200, '성공', result)
     } catch (e) {
         console.log(e)
         sendErr(res, e)
