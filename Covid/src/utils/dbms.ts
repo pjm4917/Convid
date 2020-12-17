@@ -8,6 +8,7 @@ export const pool = mysql.createPool({
     user: 'admin',
     password: 'covid2020',
     database: 'database',
+    dateStrings: 'date',
     multipleStatements: true,
     connectionLimit: 80
 })
