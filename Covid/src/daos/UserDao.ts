@@ -1,4 +1,4 @@
-import {BaseDao} from "./BaseDao";
+import { BaseDao } from './BaseDao'
 
 class UserDao extends BaseDao {
     insertUser(token: string, uuid: string, os: string, phone: string | null) {
