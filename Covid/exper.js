@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 app.listen(port, () => console.log("Listening on", port));
 */
 
-router.get('/db', function(req, res, next) {
+router.get('/dotenv', function(req, res, next) {
     res.send(process.env.DB_NAME);
 })
 
