@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { sendErr, sendRes } from '../utils/response-handler'
 import { storeDao } from '../daos/StoreDao'
+import {contactDao} from "../daos/ContactDao";
 
 const router = Router()
 
@@ -45,6 +46,17 @@ router.post('/login', async(req, res) => {
             return
         }
         sendRes(res, 200, '', found)
+    } catch (e) {
+        console.log(e)
+        sendErr(res, e)
+    }
+})
+
+router.get('/today/:storeId', async (req, res) => {
+    try {
+        const { storeId } = req.params
+        const result = await contactDao.getTodayVisitors(Number(storeId))
+        sendRes(res, 200, '', result)
     } catch (e) {
         console.log(e)
         sendErr(res, e)

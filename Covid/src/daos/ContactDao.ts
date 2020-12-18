@@ -6,6 +6,11 @@ class ContactDao extends BaseDao {
         return this.insert(queryStr, [id, storeId])
     }
 
+    getTodayVisitors(id: number) {
+        const queryStr = 'SELECT * FROM USER_STORE_TB WHERE store_id = ? AND DATE_FORMAT(created_at, "%Y-%m-%D") = CURDATE() GROUP BY user_id'
+        return this.getAll(queryStr, [id])
+    }
+
     showContact(storeId: string, uuid: string, date: Date) {
         var startTime = date.getTime() - (2 * 60 * 60 * 1000);
         var endTime = date.getTime() + (2 * 60 * 60 * 1000);
