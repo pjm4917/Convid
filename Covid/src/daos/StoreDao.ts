@@ -24,11 +24,10 @@ class StoreDao extends BaseDao {
         return this.getOne(queryStr, [phone])
     }
 
-    getStoreByPhoneAndPwd(phone : string, pwd : string) {
+    getStoreByPhoneAndPwd(phone: string, pwd: string) {
         const queryStr = 'SELECT * FROM STORE_TB WHERE phone = ? AND pwd = ? AND deleted_at IS NULL'
         return this.getOne(queryStr, [phone, pwd])
     }
-
 }
 
 export const storeDao = new StoreDao()
