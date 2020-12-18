@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { sendErr, sendRes } from '../utils/response-handler'
 import { contactDao } from '../daos/ContactDao'
+import moment from "moment";
 
 const router = Router()
 
@@ -17,10 +18,10 @@ router.post('/in/:storeId', async (req, res) => {
     }
 })
 
-router.get('', async (req, res) => {
+router.get('/', async (req, res) => {
     try{
-        const { storeId, uuid, createTime }= req.query
-        const result = await contactDao.showContact(storeId, uuid, createTime)
+        const { storeId, uuid, createTime } = req.query
+        const result = await contactDao.showContact(String(storeId), String(uuid), moment(String(createTime)).toDate())
         if (!result) sendRes(res, 200, '아무도 없습니다.', result)
         sendRes(res, 200, '검색되었습니다.', result)
     } catch (e) {
