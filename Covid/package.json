@@ -4,7 +4,7 @@
   "main": "app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "pm2 npm start main"
+    "start": "cross-env NODE_ENV=production pm2 start src/app.ts"
   },
   "author": "Sio",
   "license": "ISC",
