@@ -3,11 +3,11 @@ const mysql = require('mysql2/promise')
 require('dotenv').config()
 
 export const pool = mysql.createPool({
-    host: 'coviddatabase.cnsxhx5bsw4v.ap-northeast-2.rds.amazonaws.com',
-    port: 3306,
-    user: 'admin',
-    password: 'covid2020',
-    database: 'database',
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
     dateStrings: 'date',
     multipleStatements: true,
     connectionLimit: 80
